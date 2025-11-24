@@ -8,11 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var increaseButton: UIButton!
-    @IBOutlet weak var decreaseButton: UIButton!
-    @IBOutlet weak var labelUI: UILabel!
-    @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var historyUI: UITextView!
+    @IBOutlet private weak var increaseButton: UIButton!
+    @IBOutlet private weak var decreaseButton: UIButton!
+    @IBOutlet private weak var labelUI: UILabel!
+    @IBOutlet private weak var resetButton: UIButton!
+    @IBOutlet private weak var historyUI: UITextView!
     
     private var counter: Int = 0
     override func viewDidLoad() {
@@ -23,12 +23,12 @@ class ViewController: UIViewController {
         historyUI.isEditable = false
     }
 
-    @IBAction func increaseAction(_ sender: Any) {
+    @IBAction private func increaseAction(_ sender: Any) {
         counter += 1
         labelUI.text = "Значение счётчика: \(counter)"
         historyUI.text += "\n\(Date()): значение изменено на +1"
     }
-    @IBAction func decreaseAction(_ sender: Any) {
+    @IBAction private func decreaseAction(_ sender: Any) {
         if counter > 0{
             counter -= 1
             historyUI.text += "\n\(Date()): значение изменено на -1"
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         labelUI.text = "Значение счётчика: \(counter)"
     }
     
-    @IBAction func resetAction(_ sender: Any) {
+    @IBAction private func resetAction(_ sender: Any) {
         counter = 0
         labelUI.text = "Значение счётчика: \(counter)"
         historyUI.text += "\n\(Date()): значение сброшено"
